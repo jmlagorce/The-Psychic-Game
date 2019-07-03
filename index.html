@@ -1,1 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
+    <title>The Psychic Game</title>
+</head>
+<body>
+    <h1>The Psychic Game</h1>
+    <h2>Guess what letter im thinking about...</h2>
+    <div id="wins">Wins: </div>
+    <br>
+    <div id="losses">Losses: </div>
+    <br>
+    <div id="guessesLeft">Guesses left: </div>
+    <br>
+    <div id="guessesSoFar">Your guesses so far: </div>
+    <br>
+
+
+
+    <script>
+    var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var wins = 0;
+    var losses = 0;
+    var guesses = 10;
+    var computerChoice = letters[Math.floor(Math.random() * letters.length)];
+     
+    console.log(computerChoice);
+
+    document.onkeyup = function (event) {
+        var userGuess = event.key;
+        
+        if (userGuess === computerChoice){
+            wins++;
+            guesses = 10;
+            alert("You won!")
+        }
+
+        else {
+            guesses--;
+        }
+
+        if (guesses === 0) {
+            alert("You lost!");
+            losses++;
+            guesses = 10;
+        }
+
+        document.getElementById("wins").innerHTML = "Wins: " + wins;
+        document.getElementById("losses").innerHTML = "losses: " + losses;
+        document.getElementById("guessesLeft").innerHTML = "Guesses left: " + guesses;
+        document.getElementById('guessesSoFar').textContent = "Your guesses so far: " + userGuess;
+
+    }
+
+  
+
+
+    conole.log 
+    
+    </script>
+    
+</body>
+</html>
